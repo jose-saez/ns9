@@ -1,0 +1,69 @@
+.whatsNew {
+	color: #ef2100;
+	font-size: 18px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+}
+.leftHeadline {
+	font-size: 16px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	color: #000000;
+}
+.normalBlackText {
+	font-size: 26px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+}
+.newsHeadline {
+
+	font-size: 16px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	color: #000000;
+}
+.whatIs {
+	color: #ef2100;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: bold;
+
+}
+.smallBlackText {
+
+	font-size: 13px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+}
+.conferenceTitle {
+	font-size: 13px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	text-decoration: underline;
+}
+.conferenceRed {
+	font-size: 13px;
+	font-style: normal;
+	font-weight: normal;
+	color: ef2100;
+}
+.newsArchive {
+
+	color: #000000;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: bold;
+}
+.search {
+	font-size: 14px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	color: #000099;
+}

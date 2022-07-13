@@ -1,0 +1,12 @@
+.texto {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: normal; line-height: normal; font-weight: normal; font-variant: normal; color: #000000; text-align: justify}
+.TextoNegrita { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: italic; line-height: normal; font-weight: bolder; font-variant: normal; color: #6699cc}
+.SubTitulo { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; font-style: normal; line-height: normal; font-weight: bolder; font-variant: normal; color: #6699cc}
+.Titulo1 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 13pt; font-style: normal; line-height: normal; font-weight: 900; font-variant: normal; color: #003399}
+.Titulo2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9pt; font-style: normal; line-height: normal; font-weight: bolder; font-variant: normal; color: #003399}
+.TextoNegrita2 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: normal; line-height: normal; font-weight: bolder; font-variant: normal; color: #FF6600}
+a:hover {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: normal; line-height: normal; font-weight: 100; font-variant: normal; text-transform: none; color: #FF0000; text-decoration: underline}
+a:link {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: normal; line-height: normal; font-weight: 100; font-variant: normal; color: #6699cc; text-decoration: underline; text-transform: none}
+a:active {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: normal; line-height: 15px; font-weight: lighter; font-variant: normal; text-transform: none; color: #660066; text-decoration: underline}
+a {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: normal; font-weight: 100; font-variant: normal; text-transform: none; color: #003399; text-decoration: underline}
+.TextoNegrita3 { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; font-style: italic; line-height: normal; font-weight: bolder; font-variant: normal; color: #FF9900}
+.Etiqueta { font-family:Verdana, Arial,Helvetica, Sans-Serif; font-size: 8pt; font-size: normal;line-height:normal; font-weight: bolder; font-variant:normal; color: Blue}

@@ -1,0 +1,35 @@
+/* CSS Document */
+
+a.tooltip{	
+	border-bottom: 1px dashed green;
+	text-decoration: none;	
+}
+
+a:hover.tooltip{ 
+	padding: 0; 
+	
+} 
+
+.tooltip:hover span span{
+	display: block;
+}
+
+.tooltip span{	
+	position: absolute;	
+	text-decoration: none;	
+}
+
+.tooltip span span{
+ 	width: 300px;
+	display: none;	
+	position: absolute;
+	background-color: #E2EFF0;
+	border: 1px solid green;
+	padding: 10px;		
+	color: black;
+	text-decoration: none;
+	
+	z-index: 100;
+	top: 20px;	
+	left: -30px;	
+}
