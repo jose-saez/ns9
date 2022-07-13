@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> Geo  Localizations </title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+</head>
+<body>
+	Elija una dirección:
+    <input name="dire" id="dire" type="text" list="dire_list" size="100">
+    <datalist id="dire_list">
+        <option label="Casa" value="avenida pintor pedro cano, 30120">
+        <option label="Curro" value="glorieta, 4, murcia">
+        <option label="Vacaciones" value="la manga del mar menor, murcia">
+    </datalist>
+	
+	<br>
+	
+	<select name="direc" id="direc">
+	  <option value="avenida pintor pedro cano, 30120">El Palmar</option>
+	  <option value="Glorieta de España 1, 30004 - Murcia">Murcia</option>
+	  <option value="la manga del mar menor, murcia">La Manga</option>
+	  <option value="madrid, españa">Madrid</option>
+</select> 
+
+<p><button onclick="geoDireccion()">Buscar mapa</button></p>
+<div id="out2"></div>
+
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+
+<script>
+var longitude, latitude;
+
+//-------------------------------------------------------
+var getJSON = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status === 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status, xhr.response);
+      }
+    };
+    xhr.send();
+};
+
+// call this method before you initialize your map.
+function initializingMap() { 
+	var container = L.DomUtil.get('mapid');
+	if(container != null){
+		container._leaflet_id = null;
+	}
+}
+
+// call this method before you initialize your map.
+function initializingMap2() { 
+	if(document.getElementById("mapid") != null){
+		//document.getElementById("mapid").innerHTML = "";
+		document.getElementById('mapid').innerHTML = "<div id='mapid' style='width: 100%; height: 100%;'>";
+	}
+}
+
+function geoDireccion() {
+	var output2 = document.getElementById("out2");
+	var buscar="";
+	var obj_dir = document.getElementById('direc');
+	buscar = obj_dir.value;
+	alert(obj_dir.value);
+	output2.innerHTML = "<p>Buscando dirección " + buscar + "</p>";	
+
+	var url = 'https://nominatim.openstreetmap.org/?countrycodes=es&limit=1&format=json&addressdetails=1&q=' 
+		+ buscar;
+
+	getJSON(url,
+		function(err, data) {
+		  if (err !== null) {
+			alert('Something went wrong: ' + err);
+		  } else {    
+			output2.innerHTML += "Encontrados " + data.length + " resultados. Lat=" 
+				+ data[0].lat + ", long=" + data[0].lon + "<br>";
+				
+			longitude = Number(data[0].lon);
+			latitude = Number(data[0].lat);
+			output2.innerHTML += 'Obteniendo coordenadas de OpenStreetMap...<br>[' 
+				+ latitude + ', ' + longitude + ']';
+				
+			alert('cambiando ' + latitude + ', ' + longitude);
+			var zoom = 13;			
+
+/*			
+			var mymap = L.map('mapid', {
+				center: [latitude, longitude],
+				zoom: zoom
+			});
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+				//L.tileLayer('https://c.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
+				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+					'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+					'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+				id: 'mapbox.streets'
+			}).addTo(mymap);
+*/
+			//var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+			//initializingMap();			
+			initializingMap2();			
+			var mymap = L.map('mapid').setView([latitude, longitude], zoom);
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+			//L.tileLayer('https://c.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				maxZoom: 18,
+				accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw',
+				attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+					'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+					'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+				id: 'mapbox.streets'
+			}).addTo(mymap);
+		  }//else
+		}//function(err, data)
+	);
+
+}
+</script>
+
+</body>
+</html>

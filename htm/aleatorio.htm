@@ -1,0 +1,40 @@
+<script type:text/javascript">
+
+
+var acum = new Array(8);
+var i, tipo;
+//acum[0] = 15; acum[1] = 35; acum[2] = 60; acum[3] = 80; acum[4] = 90; acum[5] = 96; acum[6] = 99; acum[7] = 100;
+i=0; acum[i] = new Array(15,  35,  60,  80,  90,  96,  99, 100);
+i=1; acum[i] = new Array(20,  45,  70,  85,  96, 100, 100, 100);
+/*
+i=0; acum[i][0] = 15; acum[i][1] = 35; acum[i][2] = 60; acum[i][3] = 80; acum[i][4] = 90; acum[i][5] = 96; acum[i][6] = 99; acum[i][7] = 100;
+i=1; acum[i][0] = 20; acum[i][1] = 45; acum[i][2] = 70; acum[i][3] = 85; acum[i][4] = 96; acum[i][5] = 100; acum[i][6] = 100; acum[i][7] = 100;
+i=2; acum[i][0] = 25; acum[i][1] = 50; acum[i][2] = 75; acum[i][3] = 92; acum[i][4] = 100; acum[i][5] = 100; acum[i][6] = 100; acum[i][7] = 100;
+i=3; acum[i][0] = 30; acum[i][1] = 55; acum[i][2] = 80; acum[i][3] = 98; acum[i][4] = 100; acum[i][5] = 100; acum[i][6] = 100; acum[i][7] = 100;
+i=4; acum[i][0] = 35; acum[i][1] = 70; acum[i][2] = 90; acum[i][3] = 100; acum[i][4] = 100; acum[i][5] = 100; acum[i][6] = 100; acum[i][7] = 100;
+*/
+
+function resultado(tipo) {
+    var aleatorio = Math.round(Math.random()*100);
+    document.write("Equipo del (tipo ", tipo, ") <br>");
+    var i = 0;
+    document.write("0 - ", acum[tipo][i], ")");
+
+    if ( aleatorio < acum[tipo][i]) {
+            document.write(" ==> ", aleatorio, " ==> ", i, " goles");
+    }
+    document.write("<br>");
+    for (i=0; i<7; i++) {
+        document.write(acum[tipo][i], " - ", acum[tipo][i+1], ")");
+        if ( (aleatorio >= acum[tipo][i]) && (aleatorio < acum[tipo][i+1]) ) {
+            document.write(" ==> ", aleatorio, " ==> ", i+1, " goles");
+        }
+        document.write("<br>");
+    }
+}
+
+//------------- Equipo 2 ---------------------------
+resultado(0);
+resultado(1);
+
+</script>
