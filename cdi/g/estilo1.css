@@ -1,0 +1,7 @@
+/* estilo 1, normal */
+body {
+    font-family: verdana,helvetica;
+    color: #0000FF; /* texto azul */
+    background-color: #f8e8a0; /* fondo amarillo */
+    font-size: 16px;
+}

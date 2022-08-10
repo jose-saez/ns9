@@ -1,0 +1,7 @@
+/* estilo 2, alto contraste, letras grandes */
+body {
+    font-family: verdana,helvetica;
+    color: #ffffff; /* texto blanco */
+    background-color: #000000; /* fondo negro */
+    font-size: 36px;
+}

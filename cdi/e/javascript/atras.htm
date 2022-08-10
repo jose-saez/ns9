@@ -1,0 +1,32 @@
+<html>
+<head> <title> Ejemplo de cuenta atrás </title> </head> 
+<body> <h1>Ejemplo de cuenta atrás</h1>
+<form name="redirect">
+<h2>Vamos contando...
+<span id="Segundos"></span> 
+<input type="hidden" size="3" name="contador">
+segundos restantes
+</h2>
+</form>
+
+<script language="javascript">
+var targetURL="atras.htm" //URL A LA QUE DIRIGIR. Redirige a sí misma
+var cuentaAtras=10 //SEGUNDOS A CONTAR
+var segundoActual = document.redirect.contador.value=cuentaAtras+1
+function contarParaRedireccionar(){
+	if (segundoActual!=1){
+		segundoActual-=1
+		var textoSegundos = document.getElementById("Segundos");
+		textoSegundos.innerHTML =segundoActual
+	} else {
+		window.location=targetURL
+		return
+	}
+	setTimeout("contarParaRedireccionar()",1000)
+}
+contarParaRedireccionar()
+</script>
+
+<p>Si no se le redirige automáticamente, pulse <a href="atras.htm">aquí</a></p>
+</body>
+</html>
